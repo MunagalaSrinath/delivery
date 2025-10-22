@@ -12,7 +12,7 @@ const authRoutes = require("./routes/authRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 
 const app = express();
-//const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -28,4 +28,7 @@ mongoose
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.error("❌ Mongo Error:", err.message));
 
-app.listen(5000, () => console.log(`🚀 Server running on port 5000`));
+//app.listen(PORT, () => console.log(`🚀 Server running on port 5000`));
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
